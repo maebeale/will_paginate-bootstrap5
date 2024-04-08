@@ -25,27 +25,35 @@ module BootstrapPagination
     protected
 
     def page_number(page)
-      link_options = @options[:link_options] || {}
+      classes = ['page-item']
+      classes << (@options[:active_class] ? @options[:active_class] : "active") if page == current_page
+      classes << 'hidden-xs' if page > 2 && page < total_pages - 1 # phones
+      classes << 'hidden-sm' if page > 3 && page < total_pages - 1 # tablets
 
-      if page == current_page
-        tag("li", tag("span", page), class: "active")
-      else
-        tag("li", link(page, page, link_options.merge(rel: rel_value(page))))
-      end
+      link_options = @options[:link_options] || {}
+      tag("li", link(page, page, rel: link_options.merge(rel: rel_value(page))), class: classes.join(' '))
     end
 
     def previous_or_next_page(page, text, classname)
-      link_options = @options[:link_options] || {}
+      text ||= 'Prev' if classname == 'previous_page'
+      text ||= 'Next' if classname == 'next_page'
+
+      classes = ['page-item', classname, "text-nowrap"].compact
 
       if page
-        tag("li", link(text, page, link_options), class: classname)
+        classes << 'hidden-xs' if page > 2 && page < total_pages - 1 # phones
+        classes << 'hidden-sm' if page > 3 && page < total_pages - 1 # tablets
+        link_options = @options[:link_options] || {}
+        tag("li", link(text, page, link_options), class: classes.join(" "))
       else
-        tag("li", tag("span", text), class: "%s disabled" % classname)
+        classes << 'disabled'
+        tag("li", tag("span", text), class: classes.join(" "))
       end
     end
 
     def gap
-      tag("li", tag("span", ELLIPSIS), class: "disabled")
+      text = @options[:gap_text] || ELLIPSIS
+      tag("li", tag("span", text), class: "page-item disabled")
     end
 
     def previous_page
