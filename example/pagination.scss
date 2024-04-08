@@ -1,0 +1,95 @@
+$text-inert: #6c757d;
+$border-inert: #dee2e6;
+$hover-background-inert: #f8f9fa;
+$hover-text-inert: #495057;
+$dark-grey: #343a40;
+
+// tablet
+@media (min-width: 768px) {
+  .pagination {
+    .page-item.hidden-xs,
+    .page-link.hidden-xs  {
+      display: none;
+    }
+  }
+}
+
+// desktop
+@media (min-width: 992px) {
+  .pagination {
+    .page-item.hidden-sm,
+    .page-link.hidden-sm  {
+      display: none;
+    }
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: right;
+  margin-top: 1rem;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-bottom: 1rem;
+  margin-right: -0.5rem;
+
+  //# current_page
+  .page-item.active {
+    a { background-color: transparent; cursor: default; color: $dark-grey; border: none; }
+  }
+  //# gap/ellipsis
+  .page-item.disabled {
+    span { background-color: transparent; cursor: default; color: $dark-grey; border: none; }
+  }
+
+  > li {
+    display: inline-block;
+    margin-right: 0.5rem;
+
+    > a,
+    > span {
+      color: $text-inert;
+      padding: 0.5rem 0.75rem;
+      text-decoration: none;
+      border: 1px solid $border-inert;
+      border-radius: 0.25rem;
+      transition: all 0.3s;
+      //&.active {
+      //  background-color: transparent;
+      //  cursor: not-allowed;
+      //  color: $dark-grey;
+      //  border: none;
+      //}
+      &:hover {
+        background-color: $hover-background-inert;
+        color: $hover-text-inert;
+        border-color: $hover-background-inert;
+      }
+    }
+
+    &.prev, &.next {
+      text-wrap: none;
+
+      > span {
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::before {
+          content: "← ";
+        }
+
+        &::after {
+          content: " →";
+        }
+      }
+
+      &.disabled > span {
+        display: none;
+      }
+    }
+  }
+}
