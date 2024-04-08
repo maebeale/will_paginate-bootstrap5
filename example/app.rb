@@ -7,7 +7,7 @@ CDN_PATH = "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
 $template = <<EOHTML
 <html>
 <head>
-<title>will_paginate-boostrap Example App</title>
+<title>will_paginate-boostrap5 Example App</title>
 <link href="<%= CDN_PATH %>" rel="stylesheet">
 </head>
 <body>
