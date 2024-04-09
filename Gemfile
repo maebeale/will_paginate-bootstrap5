@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in will_paginate-bootstrap.gemspec
+# Specify your gem's dependencies in will_paginate-bootstrap5.gemspec
 gemspec
 
 group :development do

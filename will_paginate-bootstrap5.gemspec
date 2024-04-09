@@ -3,16 +3,16 @@ $:.push File.expand_path("../lib", __FILE__)
 require "bootstrap_pagination/version"
 
 Gem::Specification.new do |s|
-  s.name        = "will_paginate-bootstrap"
+  s.name        = "will_paginate-bootstrap5"
   s.version     = BootstrapPagination::VERSION
   s.authors     = ["Nick Dainty"]
   s.email       = ["nick@npad.co.uk"]
-  s.homepage    = "https://github.com/bootstrap-ruby/will_paginate-bootstrap"
-  s.summary     = %q{Integrates the Bootstrap pagination component with will_paginate}
-  s.description = %q{This gem integrates the Bootstrap pagination component with the will_paginate pagination gem. Supports Rails and Sinatra.}
+  s.homepage    = "https://github.com/maebeale/will_paginate-bootstrap5"
+  s.summary     = %q{Integrates the Bootstrap 5 pagination component with will_paginate}
+  s.description = %q{This gem integrates the Bootstrap 5 pagination component with the will_paginate pagination gem. Supports Rails and Sinatra.}
   s.license     = "MIT"
 
-  s.rubyforge_project = "will_paginate-bootstrap"
+  s.rubyforge_project = "will_paginate-bootstrap5"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

@@ -1,5 +1,5 @@
 require "sinatra"
-require "will_paginate-bootstrap"
+require "will_paginate-bootstrap5"
 require "will_paginate/collection"
 
 CDN_PATH = "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
